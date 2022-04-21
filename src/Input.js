@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 function Input({  success, secretWord }) {
   const [currentGuess, setCurrentGuess] = React.useState("");
-
+  
+  // return early if success == true
+  // and just return the div data test component input
   if (success) {
     return <div data-test='component-input' />
   }

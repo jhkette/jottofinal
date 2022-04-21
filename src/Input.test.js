@@ -24,38 +24,51 @@ const setup = (success=false, secretWord = "party") => {
 //     useState: (initialState) => [initialState, mockSetCurrentGuesss]
 // }))
 
+/***  
+ * tests for ui if there is a fale/true success value 
+ * **/
 describe('render', () => {
     describe('success is false', () => {
-      let wrapper;
+    //   scope wrapper here
+      let wrapper; 
+    //   setup wrapper with value
       beforeEach(() => {
+        //   add false value for 'success'
         wrapper = setup(false );
       })
+    //   expect there to be a component-input
       test('Input renders without error', () => {
         const inputComponent = findByTestAttr(wrapper, 'component-input');
         expect(inputComponent.length).toBe(1);
       });
+    // expect there to be a component-input
       test('input box displays', () => {
         const inputBox = findByTestAttr(wrapper, 'input-box');
         expect(inputBox.exists()).toBe(true);
       });
+    //  expect there to be a submit button
       test('submit button displays', () => {
         const submitButton = findByTestAttr(wrapper, 'submit-button');
         expect(submitButton.exists()).toBe(true);
       });
     });
     describe('success is true', () => {
+        // put wrapper in scope of all describe function
       let wrapper;
       beforeEach(() => {
+        //   add parameter 'true' for success
         wrapper = setup(true );
       })
       test('Input renders without error', () => {
         const inputComponent = findByTestAttr(wrapper, 'component-input');
         expect(inputComponent.length).toBe(1);
       });
+    //   the input box should not appear
       test('input box does not display', () => {
         const inputBox = findByTestAttr(wrapper, 'input-box');
         expect(inputBox.exists()).toBe(false);
       });
+    //   the submit button should not appear
       test('submit button does not display', () => {
         const submitButton = findByTestAttr(wrapper, 'submit-button');
         expect(submitButton.exists()).toBe(false);
@@ -100,7 +113,7 @@ describe("state controlled input", () => {
   test("field is cleared upon submit button click", () => {
     // find submit button
     const submitButton = findByTestAttr(wrapper, "submit-button");
-
+     // we sinmulate click but we need to add an object with the preventDefault with a function as a value
     submitButton.simulate("click", { preventDefault: () => {} });
     expect(mockSetCurrentGuess).toHaveBeenCalledWith("");
   });
