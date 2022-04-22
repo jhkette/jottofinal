@@ -5,12 +5,16 @@ import GuessedWords from './GuessedWords';
 import Input from './Input'
 
 function App() {
+  const success = false
+  const secretWord = 'party'
+  const guessedWords =[]
   return (
-    <div className="container" data-test="app-component">
+    <div className="container" data-test="component-app">
       <h1>Jotto</h1>
-      <Congrats success={true} />
-      <GuessedWords guessedWords ={[{guessedWord: 'train', letterMatchCount: 3}]} />
-       <Input/>
+      <Congrats success={success} />
+      <Input success={success} secretWord={secretWord}/>
+      <GuessedWords guessedWords ={guessedWords} />
+      
     </div>
   );
 }

@@ -40,8 +40,6 @@ function Input({  success, secretWord }) {
   );
 }
 
-Input.propTypes = {
-  secretWord: PropTypes.string.isRequired,
-};
+
 
 export default Input;
