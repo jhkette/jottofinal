@@ -1,5 +1,5 @@
 /**
- * @method getLetterMatchCount
+ * @functiongetLetterMatchCount
  * @param {string} guessedWotd - Guessed word
  * @param {string} secretWord - secret word
  * @returns {number} - Number of letters matched between guessed word and secret word

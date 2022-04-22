@@ -11,7 +11,7 @@ const defaultProps = {
  * Factory function to create a shallow wrapper for the app component
  * @function setup
  * @param {object} props
- * @returns
+ * @returns {wrapper} - wrapper of guessed words components
  */
 const setup = (props = {}) => {
   const setupProps = { ...defaultProps, ...props };
@@ -29,10 +29,12 @@ describe('if there are no words guessed', () => {
   beforeEach(() => {
     wrapper = setup({ guessedWords: [] });
   });
+  // renders 'component-guessed-words'
   test('renders without error', () => {
     const component = findByTestAttr(wrapper, 'component-guessed-words');
     expect(component.length).toBe(1);
   });
+  // renders guess-instructions
   test('renders instructions to guess a word', () => {
     const instructions = findByTestAttr(wrapper, 'guess-instructions');
     expect(instructions.text().length).not.toBe(0);
