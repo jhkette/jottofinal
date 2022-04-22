@@ -29,14 +29,14 @@ const setup = (success=false, secretWord = "party") => {
  * **/
 describe('render', () => {
     describe('success is false', () => {
-    //   scope wrapper here
+    // scope wrapper here
       let wrapper; 
-    //   setup wrapper with value
+    // setup wrapper with value
       beforeEach(() => {
-        //   add false value for 'success'
+        // add false value for 'success'
         wrapper = setup(false );
       })
-    //   expect there to be a component-input
+    // expect there to be a component-input
       test('Input renders without error', () => {
         const inputComponent = findByTestAttr(wrapper, 'component-input');
         expect(inputComponent.length).toBe(1);
@@ -46,29 +46,29 @@ describe('render', () => {
         const inputBox = findByTestAttr(wrapper, 'input-box');
         expect(inputBox.exists()).toBe(true);
       });
-    //  expect there to be a submit button
+    // expect there to be a submit button
       test('submit button displays', () => {
         const submitButton = findByTestAttr(wrapper, 'submit-button');
         expect(submitButton.exists()).toBe(true);
       });
     });
     describe('success is true', () => {
-        // put wrapper in scope of all describe function
+      // put wrapper in scope of all describe function
       let wrapper;
       beforeEach(() => {
-        //   add parameter 'true' for success
+        // add parameter 'true' for success
         wrapper = setup(true );
       })
       test('Input renders without error', () => {
         const inputComponent = findByTestAttr(wrapper, 'component-input');
         expect(inputComponent.length).toBe(1);
       });
-    //   the input box should not appear
+      // the input box should not appear
       test('input box does not display', () => {
         const inputBox = findByTestAttr(wrapper, 'input-box');
         expect(inputBox.exists()).toBe(false);
       });
-    //   the submit button should not appear
+       //the submit button should not appear
       test('submit button does not display', () => {
         const submitButton = findByTestAttr(wrapper, 'submit-button');
         expect(submitButton.exists()).toBe(false);

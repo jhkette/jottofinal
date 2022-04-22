@@ -14,6 +14,7 @@ function Input({  success, secretWord }) {
   return (
     <div data-test='component-input'>
       <form className="form-inline">
+        {/* set current guess to target value */}
         <input
           data-test="input-box"
           className="mb-2 mx-sm-3"
@@ -39,8 +40,8 @@ function Input({  success, secretWord }) {
   );
 }
 
-// Input.propTypes = {
-//   secretWord: PropTypes.string.isRequired,
-// };
+Input.propTypes = {
+  secretWord: PropTypes.string.isRequired,
+};
 
 export default Input;
